@@ -1,0 +1,10 @@
+"" "Path"
+"" "----"
+"" "C:\WINDOWS\system32\ApplicationFrameHost.exe"
+url: medium.com/codex/python-pathlib-an-alternative-to-the-os-module-3dcde93bf7df
+"" "C:\WINDOWS\system32\WindowsPowerShell\v1.0\PowerShell.exe"
+"" "D:\python1\python.exe"
+"" "C:\WINDOWS\SystemApps\ShellExperienceHost_cw5n1h2txyewy\ShellExperienceHost.exe"
+"" "D:\program files 2\Sublime Text\sublime_text.exe"
+"" "C:\Windows\ImmersiveControlPanel\SystemSettings.exe"
+"" "C:\WINDOWS\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TextInputHos..."

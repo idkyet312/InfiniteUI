@@ -1,0 +1,50 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.animation as animation
+
+# Function to update the plot for each frame
+def update(num, data, line):
+    line.set_data(data[:2, :num])
+    line.set_3d_properties(data[2, :num])
+
+# Create a cube
+def generate_cube():
+    # Define the vertices of a unit cube
+    vertices = np.array([[0, 0, 0],
+                         [1, 0, 0],
+                         [1, 1, 0],
+                         [0, 1, 0],
+                         [0, 0, 1],
+                         [1, 0, 1],
+                         [1, 1, 1],
+                         [0, 1, 1]])
+
+    # Generate the list of sides' vertices
+    edges = [[vertices[i], vertices[j]] for i, j in [(0, 1), (1, 2), (2, 3), (3, 0),
+                                                     (4, 5), (5, 6), (6, 7), (7, 4),
+                                                     (0, 4), (1, 5), (2, 6), (3, 7)]]
+
+    return np.array(edges).reshape((-1, 3)).T
+
+# Initialize the figure and axis for 3D plotting
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+data = generate_cube()
+
+# Create a line object for plotting
+line, = ax.plot(data[0], data[1], data[2], linestyle="", marker="o")
+
+# Setting the axes properties
+ax.set_xlim3d([0.0, 1.0])
+ax.set_ylim3d([0.0, 1.0])
+ax.set_zlim3d([0.0, 1.0])
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+ax.set_title('3D Rotating Cube')
+
+# Creating the Animation object
+ani = animation.FuncAnimation(fig, update, frames=100, fargs=(data, line), interval=100)
+
+plt.show()
